@@ -47,11 +47,11 @@ class note(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=False)
 
-    # X = models.CharField(max_length=25)
 
-    CHOICE = ((1, 'Yes'), (0, 'No'),)
 #
     # ---------------------- Task----------------------------
+    CHOICE = ((1, 'Yes'), (0, 'No'),)
+
     task = models.IntegerField(choices=CHOICE)
 
     # ------------------------Tags---------------------------
