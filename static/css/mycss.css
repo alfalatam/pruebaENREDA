@@ -1,0 +1,24 @@
+button {
+  width: 100px;
+}
+
+#caja {
+  border-radius: 25px;
+  border: 2px solid gainsboro;
+  padding: 20px;
+  margin-bottom: 2em;
+  margin-left: 7em;
+  margin-right: 7em;
+}
+#button {
+  text-align: center;
+}
+
+#listado {
+  margin-left: 7em;
+  margin-right: 7em;
+}
+
+#title {
+  text-align: center;
+}
