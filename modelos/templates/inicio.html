@@ -127,7 +127,7 @@
 
 
                 <div id="button">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success" onclick="myFunction()">Submit</button>
                 </div>
             </form>
 
@@ -147,9 +147,9 @@
                         <b class="mb-auto" style="color: black;">End Date: {{note.EndDate}}</b>
                         <br>
                         {% if note.task == 1 %}
-                        <p class="mb-auto">¿Es una tarea? Yes</p>
+                        <p class="mb-auto">Is a task? Yes</p>
                         {% else %}
-                        <p class="mb-auto">¿Es una tarea? No</p>
+                        <p class="mb-auto">Is a task? No</p>
                         {% endif %}
                         <p class="mb-auto">Type:{{note.Type}}</p>
                         <!-- <p class="mb-auto">Adjunto: {{note.task}}</p> -->
@@ -190,33 +190,54 @@
             success: function (json) {
                 document.getElementById("post-form").reset();
                 $(".posts").prepend(
-                    '<div class="col-md-6">' +
-                    '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">' +
+                    '<div class="col-md-12">' +
+                    '<div id="caja">' +
                     '<div class="col p-4 d-flex flex-column position-static">' +
-                    '<h3 class="mb-0">' +
-                    json.Type +
-                    "</h3>" +
-                    '<p class="mb-auto">' +
+
+                    '<h3 class="mb-0" id="title">' +
                     json.Note +
-                    "</p>" +
+                    "</h3>" +
+
+
                     '<p class="mb-auto">' +
-                    json.task +
-                    "</p>" +
-                    '<p class="mb-auto">' +
+                    'Date of creation: ' +
                     json.Date +
                     "</p>" +
-                    '<p class="mb-auto">' +
+
+                    '<b class="mb-auto">' +
+                    'EndDate: ' +
                     json.EndDate +
-                    "</p>" +
+                    "</b>" + '<br>' +
+
                     '<p class="mb-auto">' +
-                    json.Adjunto +
+                    'Is a task? ' +
+                    json.task +
                     "</p>" +
+
+
+
+
+
                     '<p class="mb-auto">' +
-                    json.tags +
+                    'Type: ' +
+                    json.Type +
                     "</p>" +
-                    '<p class="mb-auto">' +
-                    json.user +
-                    "</p>" +
+                    // '<p class="mb-auto">' +
+                    // json.task +
+                    // "</p>" +
+                    // '<p class="mb-auto">' +
+                    // json.Date +
+                    // "</p>" +
+
+                    // '<p class="mb-auto">' +
+                    // json.Adjunto +
+                    // "</p>" +
+                    // '<p class="mb-auto">' +
+                    // json.tags +
+                    // "</p>" +
+                    // '<p class="mb-auto">' +
+                    // json.user +
+                    // "</p>" +
                     "</div>" +
                     "</div>" +
                     "</div>"
@@ -253,6 +274,11 @@
     document.getElementById("Date").value = DateTime;
 
     // console.log(DateTime);
+    function myFunction() {
+        document.getElementById("Date").placeholder = DateTime;
+        document.getElementById("Date").value = DateTime;
+
+    }
 </script>
 
 
@@ -267,6 +293,11 @@
     }
 
 </script>
+
+
+
+
+
 
 
 
